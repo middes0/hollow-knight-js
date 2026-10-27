@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<base href="https://cdn.jsdelivr.net/gh/TinTinWinata/hollow-knight-js@master/index.html" >
 <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -175,6 +174,18 @@
             <div id="money-text">0</div>
           </div>
           <canvas id="myCanvas"> </canvas>
+          <div id="mobile-controls" aria-label="Controles do jogo">
+            <div class="mobile-movement">
+              <button type="button" data-key="ArrowLeft" aria-label="Mover para esquerda">◀</button>
+              <button type="button" data-key="ArrowRight" aria-label="Mover para direita">▶</button>
+              <button type="button" data-key="ArrowUp" aria-label="Pular">▲</button>
+            </div>
+            <div class="mobile-actions">
+              <button type="button" data-key="x" aria-label="Atacar">ATQ</button>
+              <button type="button" data-key="s" aria-label="Dash">DASH</button>
+              <button type="button" data-key="a" aria-label="Ataque especial">ESPECIAL</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
