@@ -150,12 +150,39 @@ function start() {
   game.render();
 }
 
+function setupMobileControls() {
+  const controls = document.getElementById("mobile-controls");
+  if (!controls || controls.dataset.ready === "true") return;
+  controls.dataset.ready = "true";
+
+  controls.querySelectorAll("button[data-key]").forEach((button) => {
+    const key = button.dataset.key;
+    const press = (event) => {
+      event.preventDefault();
+      button.classList.add("pressed");
+      window.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true }));
+    };
+    const release = (event) => {
+      event.preventDefault();
+      button.classList.remove("pressed");
+      window.dispatchEvent(new KeyboardEvent("keyup", { key, bubbles: true }));
+    };
+    button.addEventListener("pointerdown", press);
+    button.addEventListener("pointerup", release);
+    button.addEventListener("pointercancel", release);
+    button.addEventListener("lostpointercapture", release);
+    button.addEventListener("contextmenu", (event) => event.preventDefault());
+  });
+}
+
 function startGame() {
   // When Start Remove the Footer
   $("#root-footer").hide();
 
   $("#start-menu").fadeOut();
   start();
+  setupMobileControls();
+  document.getElementById("mobile-controls")?.classList.add("controls-visible");
 }
 
 // startGame();
